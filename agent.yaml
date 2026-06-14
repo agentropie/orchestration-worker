@@ -1,0 +1,31 @@
+id: worker
+name: "Worker"
+
+tracker:
+  use: linear
+  project_slug: 5f9bc53defc1
+  active_states: [Todo, In Progress]
+  terminal_states: [Done, Canceled, Duplicate]
+  needs_human: "Needs Human"
+
+runner:
+  use: codex
+#  provider: vibeproxy
+#  model: claude-opus-4-8
+  model: gpt-5.5
+  reasoning: low
+  max_run_timeout_ms: 3600000
+  stall_timeout_ms: 300000
+
+orchestrator:
+  poll_interval_ms: 10000
+  max_concurrent: 3
+  max_retries: 3
+  retry_backoff_ms: 30000
+
+workspace:
+  root: ./workspaces
+  cleanup_on_terminal: true
+
+foreground: tui
+

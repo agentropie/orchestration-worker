@@ -1,0 +1,22 @@
+# secret
+.env
+
+# built binary (rebuilt from .agentropy crate)
+/bin/
+
+# per-agent crate build output
+/.agentropy/target/
+
+# run history + tui runtime
+/data/
+
+# logs
+/logs/
+
+# per-issue repo checkouts
+/workspaces/
+
+# runner session state
+/claude-sessions/
+/opencode-sessions/
+/pi-sessions/

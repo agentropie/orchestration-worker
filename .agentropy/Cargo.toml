@@ -1,0 +1,46 @@
+# generated - do not hand-edit
+[package]
+name = "agentropy-agent"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.83"
+
+[[bin]]
+name = "agentropy"
+path = "src/main.rs"
+
+[workspace]
+
+[dependencies]
+host-api = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e" }
+agentropy-cli = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e" }
+tokio = { version = "1.43", features = ["rt-multi-thread", "macros", "signal"] }
+chat-codex = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+chat-opencode = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+chat-pi = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+dashboard = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+frontend-log = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+orchestrator = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+runner-cli = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+runner-codex = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+runner-fake = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+runner-opencode = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+runner-pi = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+tracker-linear = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+tui = { git = "https://github.com/tobalsan/dar.git", rev = "09d1cc1b8f1ae0fda81aff87d957d09dbe7f4a5e", optional = true }
+
+[features]
+default = ["stock-chat-codex", "stock-chat-opencode", "stock-chat-pi", "stock-dashboard", "stock-frontend-log", "stock-orchestrator", "stock-runner-cli", "stock-runner-codex", "stock-runner-fake", "stock-runner-opencode", "stock-runner-pi", "stock-tracker-linear", "stock-tui"]
+stock-chat-codex = ["dep:chat-codex"]
+stock-chat-opencode = ["dep:chat-opencode"]
+stock-chat-pi = ["dep:chat-pi"]
+stock-dashboard = ["dep:dashboard"]
+stock-frontend-log = ["dep:frontend-log"]
+stock-orchestrator = ["dep:orchestrator"]
+stock-runner-cli = ["dep:runner-cli"]
+stock-runner-codex = ["dep:runner-codex"]
+stock-runner-fake = ["dep:runner-fake"]
+stock-runner-opencode = ["dep:runner-opencode"]
+stock-runner-pi = ["dep:runner-pi"]
+stock-tracker-linear = ["dep:tracker-linear"]
+stock-tui = ["dep:tui"]
