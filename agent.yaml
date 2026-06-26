@@ -3,9 +3,9 @@ name: "Worker"
 
 tracker:
   use: linear
-  project_slug: 5f9bc53defc1
+  delegate: "@workeragent"
   active_states: [Todo, In Progress]
-  terminal_states: [Done, Canceled, Duplicate]
+  terminal_states: [In Review, Done, Canceled, Duplicate]
   needs_human: "Needs Human"
 
 runner:
@@ -15,11 +15,11 @@ runner:
   model: gpt-5.5
   reasoning: low
   max_run_timeout_ms: 3600000
-  stall_timeout_ms: 300000
+  stall_timeout_ms: 600000
 
 orchestrator:
   poll_interval_ms: 10000
-  max_concurrent: 3
+  max_concurrent: 5
   max_retries: 3
   retry_backoff_ms: 30000
 
