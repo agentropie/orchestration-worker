@@ -1,0 +1,48 @@
+# generated - do not hand-edit
+[package]
+name = "dar-agent"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.83"
+
+[[bin]]
+name = "dar"
+path = "src/main.rs"
+
+[workspace]
+
+[dependencies]
+host-api = { package = "dar-host-api", version = "0.3", path = "/Users/agents/code/agentropy/dar/crates/host-api" }
+dar-cli-core = { package = "dar-cli-core", version = "0.3", path = "/Users/agents/code/agentropy/dar/crates/dar-cli" }
+tokio = { version = "1.43", features = ["rt-multi-thread", "macros", "signal"] }
+tool-registry-host = { package = "dar-tool-registry-host", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/tool-registry-host", optional = true }
+frontend-log = { package = "dar-frontend-log", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/frontend-log", optional = true }
+tracker-linear = { package = "dar-tracker-linear", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/tracker-linear", optional = true }
+orchestrator = { package = "dar-orchestrator", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/orchestrator", optional = true }
+dashboard = { package = "dar-dashboard", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/dashboard", optional = true }
+runner-pi = { package = "dar-runner-pi", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/runner-pi", optional = true }
+runner-codex = { package = "dar-runner-codex", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/runner-codex", optional = true }
+runner-opencode = { package = "dar-runner-opencode", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/runner-opencode", optional = true }
+runner-cli = { package = "dar-runner-cli", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/runner-cli", optional = true }
+runner-fake = { package = "dar-runner-fake", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/runner-fake", optional = true }
+chat-opencode = { package = "dar-chat-opencode", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/chat-opencode", optional = true }
+chat-pi = { package = "dar-chat-pi", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/chat-pi", optional = true }
+chat-codex = { package = "dar-chat-codex", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/chat-codex", optional = true }
+tui = { package = "dar-tui", version = "0.3", path = "/Users/agents/code/agentropy/dar/extensions/tui", optional = true }
+
+[features]
+default = ["stock-tool-registry-host", "stock-frontend-log", "stock-tracker-linear", "stock-orchestrator", "stock-dashboard", "stock-runner-pi", "stock-runner-codex", "stock-runner-opencode", "stock-runner-cli", "stock-runner-fake", "stock-chat-opencode", "stock-chat-pi", "stock-chat-codex", "stock-tui"]
+stock-tool-registry-host = ["dep:tool-registry-host"]
+stock-frontend-log = ["dep:frontend-log"]
+stock-tracker-linear = ["dep:tracker-linear"]
+stock-orchestrator = ["dep:orchestrator"]
+stock-dashboard = ["dep:dashboard"]
+stock-runner-pi = ["dep:runner-pi"]
+stock-runner-codex = ["dep:runner-codex"]
+stock-runner-opencode = ["dep:runner-opencode"]
+stock-runner-cli = ["dep:runner-cli"]
+stock-runner-fake = ["dep:runner-fake"]
+stock-chat-opencode = ["dep:chat-opencode"]
+stock-chat-pi = ["dep:chat-pi"]
+stock-chat-codex = ["dep:chat-codex"]
+stock-tui = ["dep:tui"]
