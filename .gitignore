@@ -5,7 +5,7 @@
 /bin/
 
 # per-agent crate build output
-/.agentropy/target/
+/.dar/target/
 
 # run history + tui runtime
 /data/
