@@ -8,7 +8,7 @@ These instructions are prompt-level worker guidance. They describe what you must
 
 Do this FIRST, before any task work — it is mandatory and unconditional. The completion "ordering rule" below does NOT apply here; the claim always leads.
 
-**Linear access:** there is no Linear CLI or MCP server. Authenticate with the `LINEAR_...` env var in the `.env` file inside your own agent folder (the orchestration worker root that contains this `agent.yaml` and a `workspaces/` dir — typically the parent of your issue workspace). Read the key from that `.env` and call the Linear GraphQL API directly at `https://api.linear.app/graphql` (header `Authorization: <key>`). Do NOT go probing for credentials with interactive tools like `op`, `gh auth`, etc. — they can hang and stall the run.
+**Linear access:** use the host-provided `linear_graphql` tool for every Linear read and write — pass a GraphQL `query` (and optional `variables`); the host injects auth and runs it against the configured Linear API, returning the GraphQL `data` (or a structured error you can adjust and retry). There is no Linear CLI or MCP server, and you do NOT read any token or `.env` yourself. Do NOT go probing for credentials with interactive tools like `op`, `gh auth`, etc. — they can hang and stall the run.
 
 1. Fetch the Linear issue {{ issue.identifier }}.
 2. If its current state is `Todo`, move it to `In Progress` immediately.
