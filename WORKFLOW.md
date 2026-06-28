@@ -30,7 +30,7 @@ When this issue is a sub-issue of a parent that has other sub-issues, stack on a
 
 Work only inside this issue workspace. If repositories or extra checkouts are needed, clone or create them inside this workspace unless they already exist here.
 
-For code changes, create a git worktree from the correct base branch: a completed dependency's branch/workspace when available, otherwise the repository's main branch unless the issue says otherwise.
+For code changes, create a git worktree from the correct base branch: a completed dependency's branch/workspace when available, otherwise the repository's main branch unless the issue says otherwise. Before reusing a dependency's or parent PR branch, fetch and compare it against `origin/main`: if `origin/main` has advanced beyond that branch (it contains commits the branch lacks), base on `origin/main` instead — the blocker's PR may already be merged or stale. Pick whichever is most up to date.
 
 Repo identification: you will be tasked to work on multiple repos. Use the issue's parent project, sibling issues, or related issues to properly identify which repo to work on. If it's not perfectly clear which repo to use, do not make unreliable assumptions, instead park the issue to "Needs Human" and add a comment signaling you need human input to specify which repo to use.
 
