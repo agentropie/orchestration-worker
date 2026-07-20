@@ -3,6 +3,7 @@
 
 # built binary (rebuilt from .agentropy crate)
 /bin/
+cron/output/
 
 # per-agent crate build output
 /.dar/target/
@@ -20,3 +21,5 @@
 /claude-sessions/
 /opencode-sessions/
 /pi-sessions/
+
+*-token.json

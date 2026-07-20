@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "job-1783328790411",
+      "name": "Refresh Linear bot token",
+      "enabled": true,
+      "schedule": {
+        "cron": "0 */12 * * *",
+        "tz": "UTC"
+      },
+      "payload": {
+        "message": "Refresh this worker's Linear OAuth token every run.\n\nWork only with ~/orchestration/worker and its own ~/orchestration/worker/linear-token.json; never use another worker's token state. Do not modify ~/orchestration/tools/linear-token/refresh-linear-token.js or scheduler files.\n\nUse restrictive permissions and load ~/orchestration/worker/.env in the shell. Read refresh_token privately from this worker's linear-token.json into a shell variable; never echo it. Run the helper with --token-file ~/orchestration/worker/linear-token.json and an explicit --refresh-token using that variable, redirecting both helper stdout and stderr away from captured output. The explicit argument is required to force rotation even while fresh.\n\nOnly if the helper succeeds, run a local Node script that reads linear-token.json and replaces only the value of exactly one LINEAR_OAUTH_TOKEN= line in ~/orchestration/worker/.env with access_token. Preserve every other .env line exactly; if there is not exactly one such line, fail without altering .env. Never print token values. Set .env and linear-token.json to mode 0600.\n\nValidate privately that access_token and refresh_token are present and rotated, LINEAR_OAUTH_TOKEN matches access_token, and expires_at is about 24 hours ahead. Report only sanitized success/failure and non-sensitive expiry metadata. If any prerequisite or refresh fails, do not change .env."
+      },
+      "timeoutMs": 120000
+    }
+  ]
+}
