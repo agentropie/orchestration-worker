@@ -1,31 +1,27 @@
 id: worker
 name: "Worker"
 
-tracker:
-  use: linear
-  delegate: "@workeragent"
-  active_states: [Todo, In Progress]
-  terminal_states: [In Review, Done, Canceled, Duplicate]
-  needs_human: "Needs Human"
-
 runner:
   use: codex
-#  provider: vibeproxy
-#  model: claude-opus-4-8
-  model: gpt-5.5
-  reasoning: low
+  model: gpt-5.6-terra
+  #use: pi
+  #provider: vibeproxy
+  #model: claude-opus-4-8
+  thinking: low
   max_run_timeout_ms: 3600000
   stall_timeout_ms: 600000
 
-orchestrator:
-  poll_interval_ms: 10000
-  max_concurrent: 5
-  max_retries: 3
-  retry_backoff_ms: 30000
+system_files:
+  - memory.md
 
-workspace:
-  root: ./workspaces
-  cleanup_on_terminal: true
+tracker:
+  use: linear
 
 foreground: tui
+
+extensions:
+  scheduler:
+    enabled: true
+  chat-web:
+    enabled: true
 
