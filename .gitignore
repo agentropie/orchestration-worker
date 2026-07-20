@@ -16,6 +16,7 @@ cron/output/
 
 # per-issue repo checkouts
 /workspaces/
+/workflows/
 
 # runner session state
 /claude-sessions/
