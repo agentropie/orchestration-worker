@@ -4,6 +4,8 @@ async fn main() {
     let mut plugins: Vec<std::sync::Arc<dyn host_api::Extension>> = Vec::new();
     #[cfg(feature = "stock-tool-registry-host")]
     plugins.push(std::sync::Arc::new(tool_registry_host::ToolRegistryHostExtension) as std::sync::Arc<dyn host_api::Extension>);
+    #[cfg(feature = "stock-mcp")]
+    plugins.push(std::sync::Arc::new(mcp::McpExtension) as std::sync::Arc<dyn host_api::Extension>);
     #[cfg(feature = "stock-frontend-log")]
     plugins.push(std::sync::Arc::new(frontend_log::FrontendLogExtension) as std::sync::Arc<dyn host_api::Extension>);
     #[cfg(feature = "stock-system-context")]
