@@ -1,13 +1,14 @@
 id: worker
 name: "Worker"
+description: Implements Linear issues as code
 
 runner:
   use: codex
-  model: gpt-5.6-terra
+  model: gpt-6.1-sol
   #use: pi
   #provider: vibeproxy
   #model: claude-opus-4-8
-  thinking: low
+  thinking: high
   max_run_timeout_ms: 3600000
   stall_timeout_ms: 600000
 
