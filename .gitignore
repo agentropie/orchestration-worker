@@ -24,3 +24,6 @@ cron/output/
 /pi-sessions/
 
 *-token.json
+
+# scheduled job output
+/cron/output/
