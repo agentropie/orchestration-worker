@@ -1,4 +1,4 @@
-# Reviewer Agent
+# Worker Agent
 
 ## Memory
 
